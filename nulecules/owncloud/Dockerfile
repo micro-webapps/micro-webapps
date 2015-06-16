@@ -1,4 +1,4 @@
-FROM projectatomic/atomicapp:0.0.1
+FROM projectatomic/atomicapp:latest
 
 MAINTAINER Jan Kaluza <jkaluza@redhat.com>
 

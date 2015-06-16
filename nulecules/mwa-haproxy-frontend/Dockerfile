@@ -1,10 +1,10 @@
-FROM projectatomic/atomicapp:0.0.1
+FROM projectatomic/atomicapp:latest
 
 MAINTAINER Jan Kaluza <jkaluza@redhat.com>
 
 LABEL io.projectatomic.nulecule.specversion 0.0.1-alpha
 
-LABEL Build docker build --rm --tag testing/mwa-haproxy-frontend-atomicapp .
+LABEL Build docker build --rm --tag testing/haproxy-frontend-atomicapp .
 
 
 ADD Nulecule /application-entity/

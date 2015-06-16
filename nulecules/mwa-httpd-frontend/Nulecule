@@ -1,6 +1,6 @@
 ---
-specversion: 0.0.1-alpha
-id: mwa-httpd-frontend-atomicapp
+specversion: 0.0.2
+id: httpd-frontend-atomicapp
 metadata:
   name: mwa-httpd-frontend
   appversion: 2015-50-21-001
@@ -8,23 +8,23 @@ metadata:
     This is a nulecule that will get you the container with micro-webapps
     httpd-frontend.
 graph:
-  mwa-httpd-frontend:
+  - name: mwa-httpd-frontend
     params:
-      publicip:
+      - name: publicip
         description: The IP address or addresses at which httpd can be reached
-      kubernetes_client_certificate:
+      - name: kubernetes_client_certificate
         description: >
           Client certificate to access Kubernetes API with new-lines escaped to "\n".
           This can be done by sed ':a;N;$!ba;s/\n/\\n/g'. Set to None if no certificate
           is needed.
         default: None
-      kubernetes_client_key:
+      - name: kubernetes_client_key
         description: >
           Client key to access Kubernetes API with new-lines escaped to "\n".
           This can be done by sed ':a;N;$!ba;s/\n/\\n/g'. Set to None if no key
           is needed.
         default: None
-      kubernetes_namespace:
+      - name: kubernetes_namespace
         description: Kubernetes namespace used to query the Kubernestes API.
         default: default
     artifacts:

@@ -1,5 +1,5 @@
 ---
-specversion: 0.0.1-alpha
+specversion: 0.0.2
 id: webapp-owncloud-atomicapp
 metadata:
   name: Owncloud
@@ -8,13 +8,13 @@ metadata:
     This is a nulecule that will get you the container with Owncloud which
     is able to run with mwa-httpd-frontend.
 graph:
-  webapp-owncloud:
+  - name: webapp-owncloud
     params:
-      vhost:
+      - name: vhost
         description: >
           Virtual-host where Owncloud should be served.
         default: localhost
-      alias:
+      - name: alias
         description: >
           Alias which should be used to serve the Owncloud.
         default: /owncloud
