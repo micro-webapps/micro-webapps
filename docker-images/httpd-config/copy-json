@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Jan Kaluza <jkaluza at redhat dot com>
+# Description: Copies .json files from one directory to another and
+# replaces $VARIABLES$ with the values of the environment variables
+# with the same name.
+
+from __future__ import print_function
+import sys
+import json
+import os
+
+# Replaces $VARIABLE$ with the values of the environment variables with
+# the same name. If the variable is not found, the $VARIABLE$ is kept in
+# the output.
+def expand_variables(line):
+    ret = ""
+    lst = line.split("$")
+    for part in lst:
+        env = part
+        val = os.getenv(env, False)
+        if val == False:
+            ret += part + "$"
+        else:
+            ret = ret[:-1]
+            ret += val
+    return ret[:-1] # remove last $
+
+# Copy all JSON files with "webconfig" section from sys.argv[1] to
+# sys.argv[2], expanding the variables with expand_variables().
+# It also replaces 'id' with value of WEBAPP_ID environment variable.
+for f in os.listdir(sys.argv[1]):
+    if not f.endswith(".json"):
+        continue
+
+    f = open(sys.argv[1] + "/" + f, "r")
+    c = json.load(f)
+    f.close()
+
+    if not "webconfig" in c:
+        continue
+
+    webapp_id = os.getenv("MWA_WEBAPP_ID", False)
+    if webapp_id != False:
+        c["id"] = webapp_id
+    with open(sys.argv[2] + "/" + c["id"] + ".json", 'w') as outfile:
+        outfile.write(expand_variables(json.dumps(c)))

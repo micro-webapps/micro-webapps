@@ -1,0 +1,26 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1beta3",
+    "metadata": {
+        "name": "webapp-owncloud",
+        "annotations": {
+            "mwa_version": "0.1",
+            "mwa_vhost": "$vhost",
+            "mwa_alias": "$alias",
+            "mwa_webconfig": "{\"virtualhost\": \"%MWA_VHOST%\",\"proxy_protocol\": \"http://\",\"proxy_alias\": \"%MWA_ALIAS%\",\"proxy_backend_alias\": \"/owncloud\",\"document_root\": \"%MWA_DOCUMENT_ROOT%\"}"
+        }
+    },
+    "spec": {
+        "selector": {
+            "name": "webapp-owncloud"
+        },
+        "ports": [
+            {
+                "name": "http-port",
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 80
+            }
+        ]
+    }
+}

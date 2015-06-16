@@ -1,0 +1,27 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1beta3",
+    "metadata": {
+        "name": "httpd-frontend"
+    },
+    "spec": {
+        "selector": {
+            "name": "httpd-frontend"
+        },
+        "publicIPs": ["10.0.0.109"],
+        "ports": [
+            {
+                "name": "http-port",
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 80
+            },
+            {
+                "name": "https-port",
+                "protocol": "TCP",
+                "port": 443,
+                "targetPort": 443
+            }
+        ]
+    }
+}

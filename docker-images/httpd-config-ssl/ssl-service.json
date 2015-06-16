@@ -1,0 +1,10 @@
+{
+  "id": "webapp-ssl",
+  "webconfig": {
+    "virtualhost": "$MWA_VHOST$",
+    "certificate": "$MWA_CERTIFICATE$",
+    "certificate_key": "$MWA_CERTIFICATE_KEY$",
+    "redirect": "$MWA_REDIRECT_HTTP$"
+  }
+}
+

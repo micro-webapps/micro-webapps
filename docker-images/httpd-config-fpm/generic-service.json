@@ -1,0 +1,24 @@
+{
+  "id": "webapp-generic",
+  "webconfig": {
+    "virtualhost": "$MWA_VHOST$",
+    "document_root": "$MWA_DOCUMENT_ROOT$",
+    "directories": {
+      "$MWA_APP_ROOT$": {
+        "alias": "$MWA_ALIAS$",
+        "index": "index.php"
+      }
+    },
+    "locations": {
+      "$MWA_ALIAS$": {
+        "match": {
+          "regex": "\\.php$",
+          "proxy_protocol": "fcgi://",
+          "proxy_backend_alias": "$MWA_BACKEND_APP_ROOT$/$1",
+          "allow": "all"
+        }
+      }
+    }
+  }
+}
+

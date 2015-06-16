@@ -1,0 +1,6 @@
+[submodule "docker-images/httpd-frontend/httpd-cfg"]
+	path = docker-images/httpd-frontend/httpd-cfg
+	url = git@github.com:micro-webapps/httpd-cfg.git
+[submodule "docker-images/haproxy-frontend/haproxy-cfg"]
+	path = docker-images/haproxy-frontend/haproxy-cfg
+	url = git@github.com:micro-webapps/haproxy-cfg.git

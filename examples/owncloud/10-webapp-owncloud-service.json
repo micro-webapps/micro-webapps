@@ -1,0 +1,20 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1beta3",
+    "metadata": {
+        "name": "webapp-owncloud"
+    },
+    "spec": {
+        "selector": {
+            "name": "webapp-owncloud"
+        },
+        "ports": [
+            {
+                "name": "http-port",
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 80
+            }
+        ]
+    }
+}

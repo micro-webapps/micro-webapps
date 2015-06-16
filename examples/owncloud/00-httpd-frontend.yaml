@@ -1,0 +1,50 @@
+apiVersion: v1beta1
+id: httpd-frontend
+desiredState:
+  manifest:
+    version: v1beta1
+    id: frontendController
+    containers:
+      - name: httpd-frontend
+        image: jkaluza/mwa-httpd-frontend
+        ports:
+         - containerPort: 80
+        volumeMounts:
+          - name: appsd-persistent-storage
+            mountPath: /etc/httpd/apps.d/
+          - name: www-persistent-storage
+            mountPath: /var/www
+          - name: log-persistent-storage
+            mountPath: /var/log/httpd
+
+      - name: httpd-config-owncloud
+        image: jkaluza/mwa-httpd-config-generic-proxy
+        env:
+          # The MWA_WEBAPP_ID must match the id of the Service configured by the container
+          - name: MWA_WEBAPP_ID
+            value: webapp-owncloud
+          - name: MWA_VHOST
+            value: domain.tld
+          - name: MWA_ALIAS
+            value: /owncloud
+          - name: MWA_BACKEND_ALIAS
+            value: /owncloud
+        volumeMounts:
+          - name: appsd-persistent-storage
+            mountPath: /etc/httpd/apps.d/
+          - name: www-persistent-storage
+            mountPath: /var/www
+
+    volumes:
+      - name: appsd-persistent-storage
+        source:
+          emptyDir: {}
+      - name: www-persistent-storage
+        source:
+          emptyDir: {}
+      - name: log-persistent-storage
+        source:
+          emptyDir: {}
+labels:
+  name: httpd-frontend
+kind: Pod
