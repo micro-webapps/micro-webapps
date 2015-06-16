@@ -6,7 +6,7 @@ desiredState:
     id: frontendController
     containers:
       - name: haproxy-frontend
-        image: jkaluza/mwa-haproxy-frontend
+        image: microwebapps/haproxy-frontend
         ports:
          - containerPort: 80
         env:

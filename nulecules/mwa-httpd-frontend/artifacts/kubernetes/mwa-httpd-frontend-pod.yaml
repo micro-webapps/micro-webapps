@@ -6,7 +6,7 @@ desiredState:
     id: frontendController
     containers:
       - name: httpd-frontend
-        image: jkaluza/mwa-httpd-frontend
+        image: microwebapps/httpd-frontend
         ports:
          - containerPort: 80
         env:
