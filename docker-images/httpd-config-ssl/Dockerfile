@@ -13,7 +13,7 @@
 #
 # Author: Jan Kaluza <jkaluza at redhat dot com>
 
-FROM jkaluza/mwa-httpd-config
+FROM microwebapps/httpd-config
 COPY *.json /
 
 COPY *.sh /
