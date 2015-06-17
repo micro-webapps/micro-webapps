@@ -1,20 +1,20 @@
 apiVersion: v1beta1
 id: webapp-wordpress
 desiredState:
-manifest:
+  manifest:
     version: v1beta1
     id: webapp-wordpress
     containers:
     - name: webapp-wordpress
-        image: wordpress
-        ports:
+      image: wordpress
+      ports:
         - containerPort: 80
-        env:
+      env:
         - name: WORDPRESS_DB_PASSWORD
-            value: $db_user
+          value: $db_user
         - name: WORDPRESS_DB_USER
-            value: $db_password
+          value: $db_password
 labels:
-name: webapp-wordpress
+  name: webapp-wordpress
 kind: Pod
 
