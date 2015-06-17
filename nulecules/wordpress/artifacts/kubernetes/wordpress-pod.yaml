@@ -1,8 +1,8 @@
-apiVersion: v1beta3
+apiVersion: v1beta1
 id: webapp-wordpress
 desiredState:
   manifest:
-    version: v1beta3
+    version: v1beta1
     id: webapp-wordpress
     containers:
       - name: webapp-wordpress
@@ -16,6 +16,6 @@ desiredState:
           - name: WORDPRESS_DB_USER
             value: root
 labels:
-  name: frontend
+  name: webapp-wordpress
 kind: Pod
 
