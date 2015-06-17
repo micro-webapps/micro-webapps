@@ -19,21 +19,21 @@ The resulting pod could look like this:
     apiVersion: v1beta1
     id: webapp-wordpress
     desiredState:
-    manifest:
+      manifest:
         version: v1beta1
         id: webapp-wordpress
         containers:
         - name: webapp-wordpress
-            image: wordpress
-            ports:
+          image: wordpress
+          ports:
             - containerPort: 80
-            env:
+          env:
             - name: WORDPRESS_DB_PASSWORD
-                value: $db_user
+              value: $db_user
             - name: WORDPRESS_DB_USER
-                value: $db_password
+              value: $db_password
     labels:
-    name: webapp-wordpress
+      name: webapp-wordpress
     kind: Pod
 
 There is nothing special in the pod file. We will store the pod file as `./artifacts/kubernetes/wordpress-pod.yaml`.
@@ -93,35 +93,35 @@ Now it's time to create the Nulecule with the pod and service files. Again, ther
     specversion: 0.0.2
     id: webapp-wordpress-atomicapp
     metadata:
-    name: Wordpress
-    appversion: 1.1.0
-    description: >
+      name: Wordpress
+      appversion: 1.1.0
+      description: >
         This is a nulecule that will get you the container with Wordpress which
         is able to run with httpd-frontend.
     graph:
-    - name: aggregated-mysql-atomicapp
+      - name: aggregated-mysql-atomicapp
         source: docker://projectatomic/mysql-centos7-atomicapp
-    - name: webapp-wordpress
+      - name: webapp-wordpress
         params:
         - name: mwa_vhost
-            description: >
+          description: >
             Virtual-host where Owncloud should be served.
-            default: localhost
+          default: localhost
         - name: mwa_alias
-            description: >
+          description: >
             Alias which should be used to serve the Owncloud.
-            default: /blog
+          default: /blog
         - name: db_user
-            description: User used to access MySQL database.
-            default: root
+          description: User used to access MySQL database.
+          default: root
         - name: db_password
-            description: Password used to access MySQL database.
-            default: yourpassword
+          description: Password used to access MySQL database.
+          default: yourpassword
         artifacts:
-        kubernetes:
+          kubernetes:
             - file://artifacts/kubernetes/wordpress-pod.yaml
             - file://artifacts/kubernetes/wordpress-service.json
-        openshift:
+          openshift:
             - inherit:
             - kubernetes
 
