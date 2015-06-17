@@ -6,7 +6,7 @@ metadata:
   appversion: 2015-50-21-001
   description: >
     This is a nulecule that will get you the container with Owncloud which
-    is able to run with mwa-httpd-frontend.
+    is able to run with httpd-frontend.
 graph:
   - name: webapp-owncloud
     params:
