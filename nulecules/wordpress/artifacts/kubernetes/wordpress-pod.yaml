@@ -1,21 +1,20 @@
 apiVersion: v1beta1
 id: webapp-wordpress
 desiredState:
-  manifest:
+manifest:
     version: v1beta1
     id: webapp-wordpress
     containers:
-      - name: webapp-wordpress
-        image: goern/wordpress
+    - name: webapp-wordpress
+        image: wordpress
         ports:
-          - containerPort: 80
+        - containerPort: 80
         env:
-          - name: WORDPRESS_DB_PASSWORD
-            # change this - must match mysql.yaml password
-            value: yourpassword
-          - name: WORDPRESS_DB_USER
-            value: root
+        - name: WORDPRESS_DB_PASSWORD
+            value: $db_user
+        - name: WORDPRESS_DB_USER
+            value: $db_password
 labels:
-  name: webapp-wordpress
+name: webapp-wordpress
 kind: Pod
 
