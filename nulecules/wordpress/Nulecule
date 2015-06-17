@@ -24,4 +24,6 @@ graph:
       kubernetes:
         - file://artifacts/kubernetes/wordpress-pod.yaml
         - file://artifacts/kubernetes/wordpress-service.json
-
+      openshift:
+        - inherit:
+          - kubernetes
