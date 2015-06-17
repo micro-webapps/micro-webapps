@@ -1,5 +1,5 @@
 # What is micro-webapps?
-The goal of micro-webapps project is to allow simple deployment of web-apps using Kubernetes. Admin is able to choose set of Docker images with various web-apps, run them as a Kubernetes services and use micro-webapps to set the webserver virtual-host or path on which they should be running.
+The goal of the micro-webapps project is to allow simple deployment of web applications in the cloud (multi container) environment. Admin is able to choose the frontend which will serve the web applications and then install the web-applications as separate containers. For each web application, he is able to configure the URI on which the web application will be served.
 
 It is therefore possible to setup webserver with, for example, following structure:
 
@@ -7,6 +7,10 @@ It is therefore possible to setup webserver with, for example, following structu
 - `http://domain.tld/blog` running wordpress in separate container.
 - `http://bugs.domain.tld` running Bugzilla in separate container.
 - `http://another-domain.tld` running completely different domain.
+
+# Micro-webapps architecture
+
+![Micro-webapps architecture](graphics/architecture.png)
 
 The micro-webapps uses [webconfig-spec](webconfig-spec) to configure the frontend webserver using the configuration installed with the web-app.
 
