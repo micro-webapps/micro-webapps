@@ -6,7 +6,7 @@ desiredState:
     id: webapp-wordpress
     containers:
     - name: webapp-wordpress
-      image: wordpress
+      image: microwebapps/wordpress
       ports:
         - containerPort: 80
       env:
@@ -14,6 +14,8 @@ desiredState:
           value: $db_password
         - name: WORDPRESS_DB_USER
           value: $db_user
+        - name: WORDPRESS_PATH
+          value: $mwa_alias
 labels:
   name: webapp-wordpress
 kind: Pod
