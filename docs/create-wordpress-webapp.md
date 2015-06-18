@@ -29,9 +29,9 @@ The resulting pod could look like this:
             - containerPort: 80
           env:
             - name: WORDPRESS_DB_PASSWORD
-              value: $db_user
-            - name: WORDPRESS_DB_USER
               value: $db_password
+            - name: WORDPRESS_DB_USER
+              value: $db_user
     labels:
       name: webapp-wordpress
     kind: Pod
