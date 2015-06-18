@@ -32,7 +32,7 @@ def needs_regeneration(cfg):
     global old_services
     services = []
     for item in cfg["items"]:
-        if not item.has_key("annotations") or not item["annotations"].has_key("mwa_version"):
+        if not item.has_key("annotations") or not item["annotations"].has_key("webconf-spec"):
             continue
         services.append(item)
 
