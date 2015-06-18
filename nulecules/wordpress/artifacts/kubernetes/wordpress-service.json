@@ -4,7 +4,7 @@
     "metadata": {
         "name": "webapp-wordpress",
         "annotations": {
-            "mwa_webconfig": "{\"virtualhost\": \"$mwa_vhost\",\"proxy_protocol\": \"http://\",\"proxy_alias\": \"$mwa_alias\",\"proxy_backend_alias\": \"/\"}"
+            "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy_protocol\": \"http://\",\"proxy_alias\": \"$mwa_alias\",\"proxy_backend_alias\": \"/\"}"
         }
     },
     "spec": {
