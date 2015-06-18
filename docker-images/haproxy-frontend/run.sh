@@ -16,7 +16,7 @@
 # Description: Wait until all webapps become ready, generate the httpd config
 # file and start the httpd.
 
-/confd.py &
+/kubernetes-confd "/usr/local/etc/haproxy" "/haproxy-cfg /usr/local/etc/haproxy/ /usr/local/etc/haproxy/haproxy.cfg" "killall haproxy" &
 while : ; do
     haproxy -f /usr/local/etc/haproxy/haproxy.cfg
     sleep 1

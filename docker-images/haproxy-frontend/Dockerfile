@@ -18,15 +18,17 @@ FROM haproxy:1.5
 COPY *.sh /
 RUN chmod +x /*.sh
 
-COPY *.py /
-RUN chmod +x /*.py
-
-
 RUN mkdir -p /haproxy-cfg-tmp
 COPY haproxy-cfg /haproxy-cfg-tmp
 RUN mv /haproxy-cfg-tmp/haproxy-cfg /
 RUN rm -rf /haproxy-cfg-tmp
 RUN chmod +x /haproxy-cfg
+
+RUN mkdir -p /kubernetes-confd-tmp
+COPY kubernetes-confd /kubernetes-confd-tmp
+RUN mv /kubernetes-confd-tmp/kubernetes-confd /
+RUN rm -rf /kubernetes-confd-tmp
+RUN chmod +x /kubernetes-confd
 
 RUN touch /usr/local/etc/haproxy/haproxy.cfg
 

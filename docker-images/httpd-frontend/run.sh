@@ -19,5 +19,5 @@
 chmod 755 /var/www
 chown apache:apache -R /var/www/*
 
-/confd.py &
+/kubernetes-confd "/etc/httpd/apps.d" "/httpd-cfg /etc/httpd/apps.d /etc/httpd/apps.d" "/usr/sbin/httpd -k graceful" &
 /usr/sbin/httpd -D FOREGROUND

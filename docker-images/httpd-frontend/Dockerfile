@@ -18,14 +18,17 @@ FROM centos:7
 COPY *.sh /
 RUN chmod +x /*.sh
 
-COPY *.py /
-RUN chmod +x /*.py
-
 RUN mkdir -p /httpd-cfg-tmp
 COPY httpd-cfg /httpd-cfg-tmp
 RUN mv /httpd-cfg-tmp/httpd-cfg /
 RUN rm -rf /httpd-cfg-tmp
 RUN chmod +x /httpd-cfg
+
+RUN mkdir -p /kubernetes-confd-tmp
+COPY kubernetes-confd /kubernetes-confd-tmp
+RUN mv /kubernetes-confd-tmp/kubernetes-confd /
+RUN rm -rf /kubernetes-confd-tmp
+RUN chmod +x /kubernetes-confd
 
 RUN yum install httpd mod_ssl -y
 RUN echo "IncludeOptional apps.d/*.conf" >> /etc/httpd/conf/httpd.conf
