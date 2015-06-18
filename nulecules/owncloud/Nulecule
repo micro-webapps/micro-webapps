@@ -10,11 +10,11 @@ metadata:
 graph:
   - name: webapp-owncloud
     params:
-      - name: vhost
+      - name: mwa_vhost
         description: >
           Virtual-host where Owncloud should be served.
         default: localhost
-      - name: alias
+      - name: mwa_alias
         description: >
           Alias which should be used to serve the Owncloud.
         default: /owncloud

@@ -21,33 +21,17 @@ from urlparse import urlparse
 import sys
 import json
 import os
-import httplib                                                                                                                                                                                                                               
+import httplib
 import time
 import uuid
-                                                                                                                                                                                                                                             
-old_services = []                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                             
-# Replaces %VARIABLE% with the values of the environment variables with                                                                                                                                                                      
-# the same name. If the variable is not found, the %VARIABLE% is kept in                                                                                                                                                                     
-# the output.                                                                                                                                                                                                                                
-def expand_variables(line, envvars):                                                                                                                                                                                                         
-    ret = ""                                                                                                                                                                                                                                 
-    lst = line.split("%")                                                                                                                                                                                                                    
-    for part in lst:                                                                                                                                                                                                                         
-        env = part                                                                                                                                                                                                                           
-        val = envvars.has_key(env)                                                                                                                                                                                                           
-        if val == False:                                                                                                                                                                                                                     
-            ret += part + "%"                                                                                                                                                                                                                
-        else:                                                                                                                                                                                                                                
-            ret = ret[:-1]                                                                                                                                                                                                                   
-            ret += envvars[env]                                                                                                                                                                                                              
-    return ret[:-1] # remove last %
-                                                                                                                                                                                                                                             
+
+old_services = []
+
 def needs_regeneration(cfg):                                                                                                                                                                                                                 
-    global old_services                                                                                                                                                                                                                      
-    services = []                                                                                                                                                                                                                            
-    for item in cfg["items"]:                                                                                                                                                                                                                
-        if not item.has_key("annotations") or not item["annotations"].has_key("mwa_version"):
+    global old_services
+    services = []
+    for item in cfg["items"]:
+        if not item.has_key("annotations") or not item["annotations"].has_key("webconf-spec"):
             continue
         services.append(item)
 
@@ -55,7 +39,6 @@ def needs_regeneration(cfg):
         return False
     old_services = services
     return True
-    
 
 def generate_config(kube_host, kube_port, key_file, cert_file, kube_namespace):
     conn = httplib.HTTPSConnection(kube_host, kube_port, key_file, cert_file)
@@ -77,30 +60,19 @@ def generate_config(kube_host, kube_port, key_file, cert_file, kube_namespace):
     envcmd = ""
 
     for item in cfg["items"]:
-        if not item.has_key("annotations") or not item["annotations"].has_key("mwa_version"):
+        if not item.has_key("annotations") or not item["annotations"].has_key("webconf-spec"):
             continue
 
-        envvars = {}
-        webconfig = "{}"
-
-        for k, v in item["annotations"].items():
-            if k == "mwa_version":
-                continue
-            elif k == "mwa_webconfig":
-                webconfig = unicode(v)
-            elif k.startswith("mwa_"):
-                envvars[k.upper()] = v
-        print(envvars, item)
-        webconfig = expand_variables(webconfig, envvars)
+        webconfig = item["annotations"]["webconf-spec"]
         item["webconfig"] = json.loads(webconfig)
+        print(item)
 
         envcmd += "export "
         envcmd += item["id"].upper().replace("-", "_") + "_PORT="
         envcmd += "tcp://" + item["portalIP"] + ":" + str(item["port"])
         envcmd += "; "
 
-        print(item)
-        f = open("/usr/local/etc/haproxy/" + item["uid"] + ".json", "w")
+        f = open("/etc/httpd/apps.d/" + item["uid"] + ".json", "w")
         json.dump(item, f)
         f.close()
         del item["webconfig"]
