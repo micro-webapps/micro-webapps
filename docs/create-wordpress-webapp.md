@@ -123,7 +123,7 @@ Now it's time to create the Nulecule with the pod and service files. Again, ther
             - file://artifacts/kubernetes/wordpress-service.json
           openshift:
             - inherit:
-            - kubernetes
+              - kubernetes
 
 ## Creating the Dockerfile
 

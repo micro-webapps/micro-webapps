@@ -32,4 +32,4 @@ graph:
         - file://artifacts/kubernetes/wordpress-service.json
       openshift:
         - inherit:
-        - kubernetes
+          - kubernetes
