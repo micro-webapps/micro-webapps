@@ -27,11 +27,11 @@ The basic architecture of micro-webapps is ilustrated by this image:
 
 Web applications are running in separate containers using the Kubernetes, Openshift, Docker or another container environment. When started, the web application publishes its webserver related configuration into some shared storage. This can be Kubernetes or Openshift API-server or for example the Docker shared volume.
 
-The webserver configuration published by the web application is in the webserver-independent [webconfig-spec](https://github.com/hanzz/micro-webapps/blob/master/webconfig-spec/README.md) JSON format. This has multiple benefits:
+The webserver configuration published by the web application is in the webserver-independent [webconf-spec](https://github.com/hanzz/micro-webapps/blob/master/webconf-spec/README.md) JSON format. This has multiple benefits:
 
 - The developer of the web application writes single webserver configuration file and can be sure it will work with all the frontend webservers.
 - The deployer of the web application can use whatever frontend webserver he wants.
-- When the new webserver is created, the web applications do not have to be changed. There only have to exist the webconfig-spec loader plugin for the webserver.
+- When the new webserver is created, the web applications do not have to be changed. There only have to exist the webconf-spec loader plugin for the webserver.
 
 When the webserver configuration is published in the shared storage, the frontend webserver detects it and reload its configuration to reflect the configuration of newly added web application. This allows transparent changes in the served applications and virtualhost.
 
@@ -67,7 +67,7 @@ The developer of the web application can create single Docker image, which will 
 
 # Microwebapps without Nulecule
 
-*NOTE: This section is not up-to-date. The following examples has to be ported to new micro-webapps architecture. They are still valid when it comes to usage of webconfig-spec, but they are not using shared storage for storing the webserver configuration files. Better stop reading here to not get confused... :)*
+*NOTE: This section is not up-to-date. The following examples has to be ported to new micro-webapps architecture. They are still valid when it comes to usage of webconf-spec, but they are not using shared storage for storing the webserver configuration files. Better stop reading here to not get confused... :)*
 
 It is also possible to use micro-webapps without the Nulecule project. Following examples are showing how to use the micro-webapps with the Kubernetes project:
 
