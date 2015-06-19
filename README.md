@@ -80,3 +80,4 @@ This chapter contains useful documentation and examples how to use micro-webapps
 
   * Nulecule - Atomicapp
     * [Creating the micro-webapps application - Wordpress example](docs/create-wordpress-webapp.md)
+    * [Deploying the micro-webapps application - Wordpress example](docs/deploy-wordpress-webapp.md)
