@@ -82,5 +82,5 @@ This chapter contains useful documentation and examples how to use micro-webapps
     * [Creating the micro-webapps application - Wordpress example](docs/create-wordpress-webapp.md)
     * [Deploying the micro-webapps application - Wordpress example](docs/deploy-wordpress-webapp.md)
   * [FAQ](docs/faq.md)
-    * [What is the difference between micro-webapps and Kubernetes service](docs/faq.md##what-is-the-difference-between-micro-webapps-and-kubernetes-service)
-    * [What is the difference between micro-webapps and Openshift3 routing layer](docs/faq.md##what-is-the-difference-between-micro-webapps-and-openshift3-routing-layer)
+    * [What is the difference between micro-webapps and Kubernetes service](docs/faq.md#what-is-the-difference-between-micro-webapps-and-kubernetes-service)
+    * [What is the difference between micro-webapps and Openshift3 routing layer](docs/faq.md#what-is-the-difference-between-micro-webapps-and-openshift3-routing-layer)
