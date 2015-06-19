@@ -27,7 +27,7 @@ The basic architecture of micro-webapps is ilustrated by this image:
 
 Web applications are running in separate containers using the Kubernetes, Openshift, Docker or another container environment. When started, the web application publishes its webserver related configuration into some shared storage. This can be Kubernetes or Openshift API-server or for example the Docker shared volume.
 
-The webserver configuration published by the web application is in the webserver-independent [webconf-spec](https://github.com/hanzz/micro-webapps/blob/master/webconf-spec/README.md) JSON format. This has multiple benefits:
+The webserver configuration published by the web application is in the webserver-independent [webconf-spec](https://github.com/micro-webapps/webconf-spec) JSON format. This has multiple benefits:
 
 - The developer of the web application writes single webserver configuration file and can be sure it will work with all the frontend webservers.
 - The deployer of the web application can use whatever frontend webserver he wants.
