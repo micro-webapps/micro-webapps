@@ -2,6 +2,8 @@
 
 This document describes how you can deploy Nulecule micro-webapps application. We will deploy on Openshift in this document, but for the Kubernetes, the steps to deploy the micro-webapps Nulecule application are very similar.
 
+Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md).
+
 ## Deploying the micro-webapps frontend
 
 At first, we have to deploy the micro-webapps frontend. The frontend will act as a proxy between the web application user and the web-application's container. The frontend is shared between all micro-webapps applications, so you have to deploy the frontend just once.

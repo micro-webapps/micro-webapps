@@ -2,6 +2,8 @@
 
 This document describes how you can create new Nulecule micro-webapps application from the existing Docker image. After reading this document, you should be able to take any Docker image with web-application and make micro-webapps ready Nulecule. We will take Wordpress as an example of complex web application, but every step described in this document is quite general and can be applied to any web application.
 
+Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md).
+
 ## Preparing or finding Docker image with the web application
 
 At first, we have to find out the right Docker image which will be used in the micro-webapps application. For the Wordpress, it's quite easy, because there is [official Wordpress Docker image](https://registry.hub.docker.com/_/wordpress/) ready.
