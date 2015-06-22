@@ -63,8 +63,8 @@ The developer of the web application can create single Docker image, which will 
 
 ## Nulecule examples
 
-- [Owncloud](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/owncloud) - Example showing the Owncloud web application using the micro-webapps and Nulecule.
-- [Wordpress](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/wordpress) - Example showing the Wordpress web application using the micro-webapps and Nulecule.
+- [Owncloud](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/owncloud) - Example of the Owncloud web application using the micro-webapps and Nulecule.
+- [Wordpress](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/wordpress) - Example of the Wordpress web application using the micro-webapps and Nulecule.
 
 # Microwebapps without Nulecule
 
