@@ -5,7 +5,7 @@
 
 ## What is the difference between micro-webapps and Kubernetes service
 
-A Kubernetes Service is an abstraction which defines a logical set of Pods and a policy by which to access them. The micro-webapps is a way how to give the web-related configuration to Kubernetes service and let other parts of the cloud to discover this configuration and handle it. This can be done by one of the micro-webapps frontend or even some cloud components.
+A Kubernetes Service is an abstraction which defines a logical set of Pods and a policy by which to access them. The micro-webapps is a way how to set the web-related configuration to Kubernetes service and let other parts of the cloud to discover this configuration and handle it. This can be done by one of the micro-webapps frontends or even some cloud components.
 
 ## What is the difference between micro-webapps and Openshift3 routing layer
 
