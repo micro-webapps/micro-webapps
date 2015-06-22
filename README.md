@@ -10,7 +10,7 @@ Table of Contents
   * [Documentation](#documentation)
 
 # What is micro-webapps?
-The goal of the micro-webapps project is to allow simple deployment of web applications in the cloud (multi container) environment. Admin is able to choose the frontend which will serve the web applications and then install the web-applications as separate containers. For each web application, he is able to configure the URI on which the web application will be served.
+The goal of the micro-webapps project is to allow simple deployment of web applications in the cloud (multi container) environment. Admin is able to choose the frontend which will serve the web applications and then install the web applications as separate containers. For each web application, he is able to configure the URI on which the web application will be served.
 
 It is therefore possible to setup webserver with, for example, following structure:
 
@@ -33,7 +33,7 @@ The webserver configuration published by the web application is in the webserver
 - The deployer of the web application can use whatever frontend webserver he wants.
 - When the new webserver is created, the web applications do not have to be changed. There only have to exist the webconf-spec loader plugin for the webserver.
 
-When the webserver configuration is published in the shared storage, the frontend webserver detects it and reload its configuration to reflect the configuration of newly added web application. This allows transparent changes in the served applications and virtualhost.
+When the webserver configuration is published in the shared storage, the frontend webserver detects it and reloads its configuration to reflect the configuration of newly added web application. This allows transparent changes in the served applications and virtualhosts.
 
 Later, when the client sends a request for the particular web application, the frontend webserver forwards it to the right container according to the frontend webserver configuration.
 
@@ -59,11 +59,12 @@ The basic usage is described on the Docker registry page of particular images.
 
 Using the [Nulecule](https://github.com/projectatomic/nulecule/) specification and its reference implementation - [The atomicapp project](https://github.com/projectatomic/atomicapp). It is possible to use micro-webapps for development, packaging and deployment of fully modular and self-contained web applications.
 
-The developer of the web application can create single Docker image, which will deploy the application on all container environments and let the deployer to easily decide on which URI the web-application should be running. In the end of deployment, the deployer has fully working web-application without the need to touch the web application's the frontend's configuration file.
+The developer of the web application can create single Docker image, which will deploy the application on all container environments and let the deployer to easily decide on which URI the web application should be running. In the end of deployment, the deployer has fully working web application without the need to touch the web application's or the frontend's configuration file.
 
 ## Nulecule examples
 
 - [Owncloud](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/owncloud) - Example showing the Owncloud web application using the micro-webapps and Nulecule.
+- [Wordpress](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/wordpress) - Example showing the Wordpress web application using the micro-webapps and Nulecule.
 
 # Microwebapps without Nulecule
 
