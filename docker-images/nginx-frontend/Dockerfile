@@ -32,6 +32,8 @@ RUN chmod +x /kubernetes-confd
 
 RUN rm -rf /etc/nginx/conf.d/*
 
+RUN apt-get update && apt-get install -y python psmisc
+
 Expose 80
 Expose 443
 
