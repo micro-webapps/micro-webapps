@@ -1,0 +1,36 @@
+---
+specversion: 0.0.2
+id: nginx-frontend-atomicapp
+metadata:
+  name: mwa-nginx-frontend
+  appversion: 2015-50-21-001
+  description: >
+    This is a nulecule that will get you the container with micro-webapps
+    nginx-frontend.
+graph:
+  - name: mwa-nginx-frontend
+    params:
+      - name: publicip
+        description: The IP address or addresses at which nginx can be reached
+      - name: kubernetes_client_certificate
+        description: >
+          Client certificate to access Kubernetes API with new-lines escaped to "\n".
+          This can be done by sed ':a;N;$!ba;s/\n/\\n/g'. Set to None if no certificate
+          is needed.
+        default: None
+      - name: kubernetes_client_key
+        description: >
+          Client key to access Kubernetes API with new-lines escaped to "\n".
+          This can be done by sed ':a;N;$!ba;s/\n/\\n/g'. Set to None if no key
+          is needed.
+        default: None
+      - name: kubernetes_namespace
+        description: Kubernetes namespace used to query the Kubernestes API.
+        default: default
+    artifacts:
+      kubernetes:
+        - file://artifacts/kubernetes/mwa-nginx-frontend-pod.yaml
+        - file://artifacts/kubernetes/mwa-nginx-frontend-service.json
+      openshift:
+        - inherit:
+          - kubernetes
