@@ -1,12 +1,18 @@
 [submodule "docker-images/httpd-frontend/httpd-cfg"]
 	path = docker-images/httpd-frontend/httpd-cfg
-	url = git@github.com:micro-webapps/httpd-cfg.git
+	url = https://github.com/micro-webapps/httpd-cfg.git
 [submodule "docker-images/haproxy-frontend/haproxy-cfg"]
 	path = docker-images/haproxy-frontend/haproxy-cfg
-	url = git@github.com:micro-webapps/haproxy-cfg.git
+	url = https://github.com/micro-webapps/haproxy-cfg.git
 [submodule "docker-images/httpd-frontend/kubernetes-confd"]
 	path = docker-images/httpd-frontend/kubernetes-confd
-	url = git@github.com:micro-webapps/kubernetes-confd.git
+	url = https://github.com/micro-webapps/kubernetes-confd.git
 [submodule "docker-images/haproxy-frontend/kubernetes-confd"]
 	path = docker-images/haproxy-frontend/kubernetes-confd
-	url = git@github.com:micro-webapps/kubernetes-confd.git
+	url = https://github.com/micro-webapps/kubernetes-confd.git
+[submodule "docker-images/nginx-frontend/kubernetes-confd"]
+	path = docker-images/nginx-frontend/kubernetes-confd
+	url = https://github.com/micro-webapps/kubernetes-confd.git
+[submodule "docker-images/nginx-frontend/nginx-cfg"]
+	path = docker-images/nginx-frontend/nginx-cfg
+	url = https://github.com/micro-webapps/nginx-cfg.git
