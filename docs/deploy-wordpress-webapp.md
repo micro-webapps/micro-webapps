@@ -8,7 +8,7 @@ Before continuing with reading, you should know the [basic micro-webapps archite
 
 At first, we have to deploy the micro-webapps frontend. The frontend will act as a proxy between the web application user and the web-application's container. The frontend is shared between all micro-webapps applications, so you have to deploy the frontend just once.
 
-There are multiple frontends available (currently the Apache httpd and HAProxy), so you have to choose one. We will use the HAProxy frontend (haproxy-frontend) in this document, but you can just use httpd-frontend instead, all the configuration remains the same.
+There are multiple frontends available (currently the Apache httpd, HAProxy and nginx), so you have to choose one. We will use the HAProxy frontend (haproxy-frontend) in this document, but you can just use httpd-frontend or nginx-frontend instead, all the configuration remains the same.
 
 If you are using Openshift, at first, you have to tell Atomicapp that it should use Openshift with the valid Openshift config. For that, we will create the `answers.conf` file in some temporary directory:
 

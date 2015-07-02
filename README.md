@@ -43,6 +43,7 @@ Currently, there are following micro-webapps frontends:
 
 - [httpd-frontend](https://registry.hub.docker.com/u/microwebapps/httpd-frontend/) - Apache httpd frontend.
 - [haproxy-frontend](https://registry.hub.docker.com/u/microwebapps/haproxy-frontend/) - HAProxy frontend.
+- [nginx-frontend](https://registry.hub.docker.com/u/microwebapps/nginx-frontend/) - nginx frontend.
 
 For the `httpd-frontend`, there exists extra `httpd-config-*` Docker images. These Docker images are used to inject extra configuration into the httpd-frontend container, so it is for example possible to serve static data on the particular virtualhost.
 
