@@ -15,7 +15,7 @@
 
 FROM wordpress:latest
 
-RUN sed -i "s|chown www-data:www-data wp-config.php|chown www-data:www-data wp-config.php; sed -i \\\"2i define( 'WP_SITEURL', 'http://' . \\\\\$_SERVER['HTTP_HOST'] . '\\\$WORDPRESS_PATH' );\\\" wp-config.php|" /entrypoint.sh
+RUN sed -i 's|set -e|set -e; mkdir -p ".$WORDPRESS_PATH"; chown www-data:www-data -R *; cd ".$WORDPRESS_PATH";|'  /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
