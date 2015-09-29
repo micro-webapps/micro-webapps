@@ -1,21 +1,17 @@
-apiVersion: v1beta1
-id: httpd-frontend
-desiredState:
-  manifest:
-    version: v1beta1
-    id: frontendController
-    containers:
-      - name: httpd-frontend
-        image: microwebapps/httpd-frontend
-        ports:
-         - containerPort: 80
-        env:
-          - name: KUBERNETES_CLIENT_CERTIFICATE_DATA
-            value: $kubernetes_client_certificate
-          - name: KUBERNETES_CLIENT_KEY_DATA
-            value: $kubernetes_client_key
-          - name: KUBERNETES_NAMESPACE
-            value: $kubernetes_namespace
-labels:
-  name: httpd-frontend
+apiVersion: v1
 kind: Pod
+metadata:
+  name: httpd-frontend
+spec:
+  containers:
+    - name: httpd-frontend
+      image: microwebapps/httpd-frontend
+      ports:
+       - containerPort: 80
+      env:
+        - name: KUBERNETES_CLIENT_CERTIFICATE_DATA
+          value: $kubernetes_client_certificate
+        - name: KUBERNETES_CLIENT_KEY_DATA
+          value: $kubernetes_client_key
+        - name: KUBERNETES_NAMESPACE
+          value: $kubernetes_namespace
