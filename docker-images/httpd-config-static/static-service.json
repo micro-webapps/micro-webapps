@@ -2,10 +2,10 @@
   "id": "webapp-static",
   "webconfig": {
     "virtualhost": "$MWA_VHOST$",
-    "directories": {
-        "/var/www/$DIR_UUID$": {
-            "alias": "$MWA_ALIAS$"
-        }
+    "locations": {
+      "$MWA_ALIAS$": {
+        "alias": "/var/www/$DIR_UUID$"
+      }
     }
   }
 }

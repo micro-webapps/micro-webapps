@@ -3,19 +3,15 @@
   "webconfig": {
     "virtualhost": "$MWA_VHOST$",
     "document_root": "$MWA_DOCUMENT_ROOT$",
-    "directories": {
-      "$MWA_APP_ROOT$": {
-        "alias": "$MWA_ALIAS$",
-        "index": "index.php"
-      }
-    },
     "locations": {
       "$MWA_ALIAS$": {
+        "index": "index.php",
         "match": {
           "regex": "\\.php$",
-          "proxy_protocol": "fcgi://",
-          "proxy_backend_alias": "$MWA_BACKEND_APP_ROOT$/$1",
-          "allow": "all"
+          "allow": "all",
+          "proxy": {
+            "url": "fcgi://webapp/$MWA_BACKEND_APP_ROOT$/$1",
+          }
         }
       }
     }

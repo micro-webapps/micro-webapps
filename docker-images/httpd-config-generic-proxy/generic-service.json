@@ -2,10 +2,11 @@
   "id": "webapp-generic",
   "webconfig": {
     "virtualhost": "$MWA_VHOST$",
-    "proxy_protocol": "$MWA_PROXY_PROTOCOL$",
-    "proxy_alias": "$MWA_ALIAS$",
-    "proxy_backend_alias": "$MWA_BACKEND_ALIAS$",
-    "document_root": "$MWA_DOCUMENT_ROOT$"
+    "document_root": "$MWA_DOCUMENT_ROOT$",
+    "proxy": {
+      "url": "$MWA_PROXY_PROTOCOL$webapp$MWA_BACKEND_ALIAS$",
+      "alias": "$MWA_ALIAS$"
+    }
   }
 }
 

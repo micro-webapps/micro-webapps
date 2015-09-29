@@ -4,7 +4,7 @@
     "metadata": {
         "name": "webapp-owncloud",
         "annotations": {
-            "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy_protocol\": \"http://\",\"proxy_alias\": \"$mwa_alias\",\"proxy_backend_alias\": \"/owncloud\"}"
+            "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy\": { \"url\": \"http://webapp/owncloud\", \"alias\": \"$mwa_alias\"}}"
         }
     },
     "spec": {
