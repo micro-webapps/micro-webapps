@@ -1,26 +1,22 @@
-apiVersion: v1beta1
-id: owncloud
-desiredState:
-  manifest:
-    version: v1beta1
-    id: frontendController
-    containers:
-      - name: webapp-owncloud
-        image: jchaney/owncloud
-        ports:
-          - containerPort: 80
-        volumeMounts:
-          - name: data-persistent-storage
-            mountPath: /var/www/owncloud/data
-          - name: config-persistent-storage
-            mountPath: /var/www/owncloud/config
-    volumes:
-      - name: data-persistent-storage
-        source:
-          emptyDir: {}
-      - name: config-persistent-storage
-        source:
-          emptyDir: {}
-labels:
-  name: webapp-owncloud
+apiVersion: v1
 kind: Pod
+metadata:
+  name: webapp-owncloud
+spec:
+  containers:
+    - name: webapp-owncloud
+      image: jchaney/owncloud
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: data-persistent-storage
+          mountPath: /var/www/owncloud/data
+        - name: config-persistent-storage
+          mountPath: /var/www/owncloud/config
+  volumes:
+    - name: data-persistent-storage
+      source:
+        emptyDir: {}
+    - name: config-persistent-storage
+      source:
+        emptyDir: {}
