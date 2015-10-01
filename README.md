@@ -47,16 +47,7 @@ Currently, there are following micro-webapps frontends:
 
 For the `httpd-frontend`, there exists extra `httpd-config-*` Docker images. These Docker images are used to inject extra configuration into the httpd-frontend container, so it is for example possible to serve static data on the particular virtualhost.
 
-The following extra, httpd-frontend only, images exist:
-* [mwa-httpd-frontend](https://registry.hub.docker.com/u/microwebapps/mwa-httpd-frontend/) - Apache httpd frontend image.
-* [mwa-httpd-config-generic-proxy](https://registry.hub.docker.com/u/microwebapps/mwa-httpd-config-generic-proxy/) - Generic proxy image for proxying to the various backends.
-* [mwa-httpd-config-static](https://registry.hub.docker.com/u/microwebapps/mwa-httpd-config-static/) - Serves static files from Docker volume or files from Git/tarball/rsync in the configured vhost/location.
-* [mwa-httpd-config-fpm](https://registry.hub.docker.com/u/microwebapps/mwa-httpd-config-fpm/) - PHP-FPM proxy used for example to proxy to wordpress:fpm Docker image.
-* [mwa-httpd-config-ssl](https://registry.hub.docker.com/u/microwebapps/mwa-httpd-config-ssl/) - Configures SSL certificate.
-
-The basic usage is described on the Docker registry page of particular images.
-
-# Micro-webapps with Nulecule
+# Micro-webapps with Nulecule and Atomicapp
 
 Using the [Nulecule](https://github.com/projectatomic/nulecule/) specification and its reference implementation - [The atomicapp project](https://github.com/projectatomic/atomicapp). It is possible to use micro-webapps for development, packaging and deployment of fully modular and self-contained web applications.
 
@@ -67,22 +58,23 @@ The developer of the web application can create single Docker image, which will 
 - [Owncloud](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/owncloud) - Example of the Owncloud web application using the micro-webapps and Nulecule.
 - [Wordpress](https://github.com/micro-webapps/micro-webapps/tree/master/nulecules/wordpress) - Example of the Wordpress web application using the micro-webapps and Nulecule.
 
-# Microwebapps without Nulecule
+Also check Documentation, which describes how to create new micro-webapp nulecule.
 
-*NOTE: This section is not up-to-date. The following examples has to be ported to new micro-webapps architecture. They are still valid when it comes to usage of webconf-spec, but they are not using shared storage for storing the webserver configuration files. Better stop reading here to not get confused... :)*
+# Micro-webapps without Nulecule and Atomicapp
 
-It is also possible to use micro-webapps without the Nulecule project. Following examples are showing how to use the micro-webapps with the Kubernetes project:
-
-- [Owncloud](https://github.com/micro-webapps/micro-webapps/tree/master/examples/owncloud/) - Example showing usage of httpd-config-generic-proxy with Owncloud to run Owncloud on http://domain.tld/owncloud.
-- [Owncloud + static root](https://github.com/micro-webapps/micro-webapps/tree/master/examples/owncloud-static-root/) - Example showing how to run Owncloud on http://domain.tld/owncloud and static website on the http://domain.tld root.
+It is also possible to use micro-webapps without the Nulecule project. Our GitHub repository contains the Kubernetes/Openshift pod/service files which can be deployed without the Nulecule or Atomicapp as described in Documentation.
 
 # Documentation
 
 This chapter contains useful documentation and examples how to use micro-webapps.
 
-  * Nulecule - Atomicapp
-    * [Creating the micro-webapps application - Wordpress example](docs/create-wordpress-webapp.md)
-    * [Deploying the micro-webapps application - Wordpress example](docs/deploy-wordpress-webapp.md)
+  * [Creating simple micro-webapps application - Simple Owncloud example](docs/create-owncloud-webapp.md)
+  * [Creating micro-webapps application with replication](docs/create-owncloud-webapp-replication.md)
+  * [Creating multi-container micro-webapps application - Wordpress example](docs/create-multi-container-wordpress-webapp.md)
+  * [Deploying micro-webapps application - Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)
+  * [Deploying micro-webapps application - Atomicapp + Openshift](docs/deploy-owncloud-webapp-atomicapp-openshift.md)
+  * [Deploying micro-webapps application - Kubernetes](docs/deploy-wordpress-webapp-kubernetes.md)
+  * [Deploying micro-webapps application - Openshift](docs/deploy-wordpress-webapp-openshift.md)
   * [Frequently asked questions](docs/faq.md)
     * [What is the difference between micro-webapps and Kubernetes service](docs/faq.md#what-is-the-difference-between-micro-webapps-and-kubernetes-service)
     * [What is the difference between micro-webapps and Openshift3 routing layer](docs/faq.md#what-is-the-difference-between-micro-webapps-and-openshift3-routing-layer)
