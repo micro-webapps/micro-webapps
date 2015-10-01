@@ -18,6 +18,10 @@ graph:
         description: >
           Alias which should be used to serve the Owncloud.
         default: /owncloud
+      - name: mwa_replicas
+        description: >
+          Number of Owncloud replicas
+        default: 1
     artifacts:
       kubernetes:
         - file://artifacts/kubernetes/owncloud-pod.yaml
