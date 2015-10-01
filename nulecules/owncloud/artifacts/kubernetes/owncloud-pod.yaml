@@ -17,7 +17,7 @@ spec:
         # The api server enforces this constraint.
         app: webapp-owncloud
       annotations:
-        webconf-spec: "{\"virtualhost\": \"$mwa_vhost\", balancers: { \"mybalancer\": { \"members\": [{\"url\": \"http://PODIP/\"}]} }}"
+        webconf-spec: "{\"virtualhost\": \"$mwa_vhost\", \"balancers\": { \"mybalancer\": { \"members\": [{\"url\": \"http://PODIP/\"}]} }}"
     spec:
       containers:
         - name: webapp-owncloud
