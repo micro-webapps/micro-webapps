@@ -16,6 +16,8 @@
 FROM wordpress:latest
 
 RUN sed -i 's|set -e|set -e; mkdir -p ".$WORDPRESS_PATH"; chown www-data:www-data -R *; cd ".$WORDPRESS_PATH";|'  /entrypoint.sh
+RUN sed -i "s|WORDPRESS_DB_HOST='mysql'|WORDPRESS_DB_HOST=\"$MYSQL_PORT_3306_TCP_ADDR\"|" /entrypoint.sh
+RUN sed -i "s|MYSQL_|MARIADB_|" /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]

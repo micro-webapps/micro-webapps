@@ -8,8 +8,8 @@ metadata:
     This is a nulecule that will get you the container with Wordpress which
     is able to run with httpd-frontend.
 graph:
-  - name: aggregated-mysql-atomicapp
-    source: docker://projectatomic/mysql-centos7-atomicapp
+  - name: aggregated-mariadb-atomicapp
+    source: docker://projectatomic/mariadb-centos7-atomicapp
   - name: webapp-wordpress
     params:
     - name: mwa_vhost
@@ -25,7 +25,7 @@ graph:
       default: root
     - name: db_password
       description: Password used to access MySQL database.
-      default: yourpassword
+      default: MySQLPass
     artifacts:
       kubernetes:
         - file://artifacts/kubernetes/wordpress-pod.yaml
