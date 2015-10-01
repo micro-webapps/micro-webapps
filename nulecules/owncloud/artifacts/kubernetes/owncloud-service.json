@@ -9,7 +9,7 @@
     },
     "spec": {
         "selector": {
-            "name": "webapp-owncloud"
+            "app": "webapp-owncloud"
         },
         "ports": [
             {

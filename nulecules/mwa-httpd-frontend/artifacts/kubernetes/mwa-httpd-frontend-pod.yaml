@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: httpd-frontend
+  labels:
+    app: httpd-frontend
 spec:
   containers:
     - name: httpd-frontend

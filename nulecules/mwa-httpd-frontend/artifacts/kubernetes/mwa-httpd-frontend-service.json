@@ -6,7 +6,7 @@
     },
     "spec": {
         "selector": {
-            "name": "httpd-frontend"
+            "app": "httpd-frontend"
         },
         "publicIPs": ["$publicip"],
         "ports": [
