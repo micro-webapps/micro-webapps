@@ -1,10 +1,11 @@
-apiVersion: v1beta1
-id: webapp-wordpress
-desiredState:
-  manifest:
-    version: v1beta1
-    id: webapp-wordpress
-    containers:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp-wordpress
+  labels:
+    app: webapp-wordpress
+spec:
+  containers:
     - name: webapp-wordpress
       image: microwebapps/wordpress
       ports:
@@ -16,7 +17,3 @@ desiredState:
           value: $db_user
         - name: WORDPRESS_PATH
           value: $mwa_alias
-labels:
-  name: webapp-wordpress
-kind: Pod
-

@@ -1,6 +1,6 @@
 {
     "kind": "Service",
-    "apiVersion": "v1beta3",
+    "apiVersion": "v1",
     "metadata": {
         "name": "webapp-wordpress",
         "annotations": {
@@ -9,7 +9,7 @@
     },
     "spec": {
         "selector": {
-            "name": "webapp-wordpress"
+            "app": "webapp-wordpress"
         },
         "ports": [
             {
