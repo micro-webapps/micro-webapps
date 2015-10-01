@@ -4,7 +4,7 @@
     "metadata": {
         "name": "webapp-owncloud",
         "annotations": {
-            "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy\": { \"url\": \"balancer://mybalancer/owncloud\", \"alias\": \"$mwa_alias\"}, balancers: { \"mybalancer\": { \"method\": \"round-robin\", \"persistence\": { \"method\": \"generate_cookie\", \"cookie_name\": \"JSESSIONID\", \"url_id\": \"jsessionid\"}, \"members\": []} }}"
+            "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy\": { \"url\": \"balancer://mybalancer/owncloud\", \"alias\": \"$mwa_alias\"}, \"balancers\": { \"mybalancer\": { \"method\": \"round-robin\", \"persistence\": { \"method\": \"generate_cookie\", \"cookie_name\": \"JSESSIONID\", \"url_id\": \"jsessionid\"}, \"members\": []} }}"
         }
     },
     "spec": {
