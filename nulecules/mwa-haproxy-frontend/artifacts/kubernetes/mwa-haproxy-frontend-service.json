@@ -1,12 +1,12 @@
 {
     "kind": "Service",
-    "apiVersion": "v1beta3",
+    "apiVersion": "v1",
     "metadata": {
         "name": "haproxy-frontend-service"
     },
     "spec": {
         "selector": {
-            "name": "haproxy-frontend"
+            "app": "haproxy-frontend"
         },
         "publicIPs": ["$publicip"],
         "ports": [

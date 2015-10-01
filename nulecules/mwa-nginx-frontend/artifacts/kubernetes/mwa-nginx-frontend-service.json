@@ -1,12 +1,12 @@
 {
     "kind": "Service",
-    "apiVersion": "v1beta3",
+    "apiVersion": "v1",
     "metadata": {
         "name": "nginx-frontend-service"
     },
     "spec": {
         "selector": {
-            "name": "nginx-frontend"
+            "app": "nginx-frontend"
         },
         "publicIPs": ["$publicip"],
         "ports": [
