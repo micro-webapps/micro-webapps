@@ -16,7 +16,7 @@ spec:
       labels:
         app: webapp-wordpress
       annotations:
-        webconf-spec: "{\"virtualhost\": \"$mwa_vhost\", \"balancers\": { \"mybalancer\": { \"members\": [{\"url\": \"http://PODIP/\"}]} }}"
+        webconf-spec: "{\"virtualhost\": \"$mwa_vhost\", \"balancers\": { \"mybalancer\": { \"members\": [{\"url\": \"http://PODIP\"}]} }}"
     spec:
       containers:
         - name: webapp-wordpress
