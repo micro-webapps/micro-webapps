@@ -68,13 +68,15 @@ It is also possible to use micro-webapps without the Nulecule project. Our GitHu
 
 This chapter contains useful documentation and examples how to use micro-webapps.
 
-  * [Creating simple micro-webapps application - Simple Owncloud example](docs/create-simple-owncloud-webapp.md)
-  * [Creating multi-container micro-webapps application - Wordpress with MariaDB example](docs/create-multi-container-wordpress-webapp.md)
-  * [Creating micro-webapps application with replication and load balancing - Wordpress example](docs/create-wordpress-webapp-replication.md)
-  * [Deploying micro-webapps application - Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)
-  * [Deploying micro-webapps application - Atomicapp + Openshift](docs/deploy-owncloud-webapp-atomicapp-openshift.md)
-  * [Deploying micro-webapps application - Kubernetes](docs/deploy-wordpress-webapp-kubernetes.md)
-  * [Deploying micro-webapps application - Openshift](docs/deploy-wordpress-webapp-openshift.md)
+  * Creating micro-webapps
+    * [Simple Owncloud example](docs/create-simple-owncloud-webapp.md)
+    * [Multi-container Wordpress with MariaDB example](docs/create-multi-container-wordpress-webapp.md)
+    * [Wordpress example with replication and load balancing](docs/create-wordpress-webapp-replication.md)
+  * Deploying micro-webapps
+    * [Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)n
+    * [Atomicapp + Openshift](docs/deploy-owncloud-webapp-atomicapp-openshift.md)
+    * [Kubernetes](docs/deploy-wordpress-webapp-kubernetes.md)
+    * [Openshift](docs/deploy-wordpress-webapp-openshift.md)
   * [Frequently asked questions](docs/faq.md)
     * [What is the difference between micro-webapps and Kubernetes service](docs/faq.md#what-is-the-difference-between-micro-webapps-and-kubernetes-service)
     * [What is the difference between micro-webapps and Openshift3 routing layer](docs/faq.md#what-is-the-difference-between-micro-webapps-and-openshift3-routing-layer)
