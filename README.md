@@ -73,7 +73,7 @@ This chapter contains useful documentation and examples how to use micro-webapps
     * [Multi-container Wordpress with MariaDB example](docs/create-multi-container-wordpress-webapp.md)
     * [Wordpress example with replication and load balancing](docs/create-wordpress-webapp-replication.md)
   * Deploying micro-webapps
-    * [Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)n
+    * [Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)
     * [Atomicapp + Openshift](docs/deploy-owncloud-webapp-atomicapp-openshift.md)
     * [Kubernetes](docs/deploy-wordpress-webapp-kubernetes.md)
     * [Openshift](docs/deploy-wordpress-webapp-openshift.md)
