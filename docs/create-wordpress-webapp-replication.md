@@ -1,6 +1,6 @@
 # Creating micro-webapps application with replication and load balancing - Wordpress example
 
-This document describes how you can create multi-container Nulecule micro-webapps application with load balancing support from the existing Docker image. After reading this document, you should be able to take any Docker image with web-application and make micro-webapps ready Nulecule. We will take Wordpress with MariaDB as an example of multi-container web application, but every step described in this document is quite general and can be applied to any web application.
+This document describes how to create multi-container Nulecule micro-webapps application with load balancing support from the existing Docker image. We will take Wordpress with MariaDB as an example of multi-container web application, but every step described in this document is quite general and can be applied to any web application.
 
 Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md), [Creating simple micro-webapps application - Simple Owncloud example](create-simple-owncloud-webapp.md) and [Creating multi-container micro-webapps application - Wordpress with MariaDB example](create-multi-container-wordpress-webapp.md)
 

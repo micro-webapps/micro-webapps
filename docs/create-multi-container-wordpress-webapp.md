@@ -1,18 +1,18 @@
 # Creating multi-container micro-webapps application - Wordpress with MariaDB example
 
-This document describes how you can create multi-container Nulecule micro-webapps application from the existing Docker image. After reading this document, you should be able to take any Docker image with web-application and make micro-webapps ready Nulecule. We will take Wordpress with MariaDB as an example of multi-container web application, but every step described in this document is quite general and can be applied to any web application.
+This document describes how to create multi-container Nulecule micro-webapps application from the existing Docker image. We will take Wordpress with MariaDB as an example of multi-container web application, but every step described in this document is quite general and can be applied to any web application.
 
 Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md) and [Creating simple micro-webapps application - Simple Owncloud example](create-simple-owncloud-webapp.md)
 
 ## Preparing the Docker image with the web application
 
-There is [official Wordpress Docker image](https://registry.hub.docker.com/_/wordpress/) ready, but we have to tweak it little bit to make it useful with micro-webapps.
+There is [official Wordpress Docker image](https://registry.hub.docker.com/_/wordpress/) available, but we have to tweak it little bit to make it useful with micro-webapps.
 
-The official Wordpress Docker image serves the Wordpress web application in the root directory, but for micro-webapps, we want the path to Wordpress web application to be configurable during deployment. We will create another Docker image based on the official Wordpress Docker image to achieve that. In that Docker image, we will just edit entry point of the official Docker image to copy Wordpress source code into the subdirectory of the deployer choice (based on ENV variable). That way, when Wordpress is deployed, the Wordpress source code is copied into proper subdirectory and is accessible from this subdirectory.
+The official Wordpress Docker image serves the Wordpress web application in the root directory, but for micro-webapps, we want the path to Wordpress web application to be configurable during deployment. We will create another Docker image based on the official Wordpress Docker image to achieve that. In that Docker image, we will just edit entry point of the official Docker image to copy Wordpress source code into the subdirectory of the deployer choice (based on ENV variable). That way, when Wordpress is deployed, the Wordpress source code is copied into proper subdirectory and is accessible from that subdirectory.
 
-Another problem is that official Wordpress image expects MySQL, but we want it to work with MariaDB. We will therefore do simple replacement of MYSQL_ with MARIADB_ in the entrypoint script.
+Another problem is that official Wordpress image expects MySQL, but we want to use MariaDB. We will therefore do simple replacement of MYSQL_ with MARIADB_ in the entrypoint script to use environment variables with MARIADB_* prefix.
 
-The last problem with official Docker image is that it uses hostname to connect the SQL database server, but this does not have to work all the time, so we will change it to use the IP address instead.
+The last problem with official Docker image is that it uses `mysql` hostname to connect the SQL database server, but this does not have to work all the time in Kubernetes or Openshift, so we will change it to use the IP address from environment variable instead.
 
 All of that is achieved by following Dockerfile:
 
@@ -85,7 +85,7 @@ The service for Wordpress using the micro-webapps could look like this:
         }
     }
 
-The `webconf-spec` field contains the webserver configuration in the [webconf-spec format](https://github.com/micro-webapps/webconf-spec). If we unescape that part, it looks like this:
+The `webconf-spec` attribute contains the webserver configuration in the [webconf-spec format](https://github.com/micro-webapps/webconf-spec). If we unescape that part, it looks like this:
 
     {
         "virtualhost": "$mwa_vhost",
@@ -142,6 +142,8 @@ Now it's time to create the Nulecule with the pod and service files. Wordpress d
           openshift:
             - inherit:
               - kubernetes
+
+We are using `projectatomic/mariadb-centos7-atomicapp` Docker image for MariaDB. You can of course create your own MariaDB Docker image and Nulecule instead of using this one.
 
 ## Creating the Dockerfile
 

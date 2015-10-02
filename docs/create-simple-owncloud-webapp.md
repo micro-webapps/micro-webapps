@@ -1,6 +1,6 @@
-# [Creating simple micro-webapps application - Simple Owncloud example
+# Creating simple micro-webapps application - Simple Owncloud example
 
-This document describes how you can create new Nulecule micro-webapps application from the existing Docker image. After reading this document, you should be able to take any Docker image with web-application and make the Nulecule out of it. We will take Owncloud as an example of simple web application, but every step described in this document is quite general and can be applied to any web application.
+This document describes how to create new micro-webapps application from the existing Docker image and ship it using Nulecule. We will take Owncloud as an example of simple web application, but every step described in this document is quite general and can be applied to any web application.
 
 Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md).
 
@@ -81,9 +81,9 @@ The sevice is quite normal. What makes it little bit special is its `annotations
         }
     }
 
-When the Owncloud Nulecule is deployed, this configuration is stored in the Kubernetes or Openshift API-server and micro-webapps frontend will fetch it and changes its setting to make the Owncloud web application accessible. The `$mwa_vhost` and `$mwa_alias` variables are replaced with proper values when the Nulecule we are creating is deployed by the admin.
+When the Owncloud Nulecule is deployed, this configuration is stored in the Kubernetes or Openshift API-server and micro-webapps frontend will fetch it and change its setting to make the Owncloud web application accessible. The `$mwa_vhost` and `$mwa_alias` variables are replaced with proper values when the Nulecule we are creating is deployed by the admin.
 
-In our case, the micro-webapps frontend will proxy the incoming requests from `http://$mwa_vhost$mwa_alias` to the internal backend using the HTTP protocol. It knows the IP address and port from the Kubernetes or Openshift, so we do not have to provide it and just use dummy `webapp` hostname. We have used `/owncloud` path in that proxy URL, so the frontend also knows that the Owncloud is accessible as "/owncloud" on the backend server.
+In our case, the micro-webapps frontend will proxy the incoming requests from `http://$mwa_vhost$mwa_alias` to the internal backend using the HTTP protocol. It knows the IP address and port from the Kubernetes or Openshift, so we do not have to provide it and just use dummy `webapp` hostname. We use `/owncloud` path in the proxy URL, so the frontend also knows that the Owncloud is accessible as "/owncloud" on the backend server.
 
 We will store the service file as `./artifacts/kubernetes/owncloud-service.json`.
 
