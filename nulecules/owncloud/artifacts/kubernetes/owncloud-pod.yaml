@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: webapp-owncloud
-          image: jchaney/owncloud
+          image: pschmitt/owncloud
           ports:
             - containerPort: 80
           volumeMounts:
