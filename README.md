@@ -68,7 +68,7 @@ It is also possible to use micro-webapps without the Nulecule project. Our GitHu
 
 This chapter contains useful documentation and examples how to use micro-webapps.
 
-  * [Creating simple micro-webapps application - Simple Owncloud example](docs/create-owncloud-webapp.md)
+  * [Creating simple micro-webapps application - Simple Owncloud example](docs/create-simple-owncloud-webapp.md)
   * [Creating multi-container micro-webapps application - Wordpress with MariaDB example](docs/create-multi-container-wordpress-webapp.md)
   * [Creating micro-webapps application with replication and load balancing - Wordpress example](docs/create-wordpress-webapp-replication.md)
   * [Deploying micro-webapps application - Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)
