@@ -1,19 +1,32 @@
 apiVersion: v1
-kind: Pod
+kind: ReplicationController
 metadata:
-  name: webapp-wordpress
-  labels:
-    app: webapp-wordpress
+  name: webapp-wordpress-controller
 spec:
-  containers:
-    - name: webapp-wordpress
-      image: microwebapps/wordpress
-      ports:
-        - containerPort: 80
-      env:
-        - name: WORDPRESS_DB_PASSWORD
-          value: $db_password
-        - name: WORDPRESS_DB_USER
-          value: $db_user
-        - name: WORDPRESS_PATH
-          value: $mwa_alias
+  replicas: $mwa_replicas
+  # selector identifies the set of pods that this
+  # replication controller is responsible for managing
+  selector:
+    app: webapp-wordpress
+  # template defines the 'cookie cutter' used for creating
+  # new pods when necessary
+  template:
+    metadata:
+      name: webapp-wordpress
+      labels:
+        app: webapp-wordpress
+      annotations:
+        webconf-spec: "{\"virtualhost\": \"$mwa_vhost\", \"balancers\": { \"mybalancer\": { \"members\": [{\"url\": \"http://PODIP/\"}]} }}"
+    spec:
+      containers:
+        - name: webapp-wordpress
+          image: microwebapps/wordpress
+          ports:
+            - containerPort: 80
+          env:
+            - name: WORDPRESS_DB_PASSWORD
+              value: $db_password
+            - name: WORDPRESS_DB_USER
+              value: $db_user
+            - name: WORDPRESS_PATH
+              value: $mwa_alias
