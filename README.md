@@ -68,15 +68,15 @@ It is also possible to use micro-webapps without the Nulecule project. Our GitHu
 
 This chapter contains useful documentation and examples how to use micro-webapps.
 
-  * Creating micro-webapps
+  * Creating micro-webapps with Nulecule
     * [Simple Owncloud example](docs/create-simple-owncloud-webapp.md)
     * [Multi-container Wordpress with MariaDB example](docs/create-multi-container-wordpress-webapp.md)
     * [Wordpress example with replication and load balancing](docs/create-wordpress-webapp-replication.md)
   * Deploying micro-webapps
-    * [Atomicapp + Kubernetes](docs/deploy-owncloud-webapp-atomicapp-kubernetes.md)
-    * [Atomicapp + Openshift](docs/deploy-owncloud-webapp-atomicapp-openshift.md)
-    * [Kubernetes](docs/deploy-wordpress-webapp-kubernetes.md)
-    * [Openshift](docs/deploy-wordpress-webapp-openshift.md)
+    * [Deploying using Atomic App (Nulecule)](docs/deploy-owncloud-webapp-atomicapp.md)
+    * [Deploying on Kubernetes or Openshift](docs/deploy-wordpress-webapp-kubernetes-openshift.md)
+  * Webconf-spec cookbook
+    * Setting up SSL certificate for microweb-apps application
   * [Frequently asked questions](docs/faq.md)
     * [What is the difference between micro-webapps and Kubernetes service](docs/faq.md#what-is-the-difference-between-micro-webapps-and-kubernetes-service)
     * [What is the difference between micro-webapps and Openshift3 routing layer](docs/faq.md#what-is-the-difference-between-micro-webapps-and-openshift3-routing-layer)
