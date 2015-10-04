@@ -66,29 +66,29 @@ When new pod is created by this replication controller, it contains this webconf
 
 The service for Wordpress using the micro-webapps could look like this:
 
-{
-    "kind": "Service",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "webapp-wordpress",
-        "annotations": {
-            "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy\": { \"url\": \"balancer://mybalancer$mwa_alias\", \"alias\": \"$mwa_alias\"}, \"balancers\": { \"mybalancer\": { \"method\": \"round-robin\", \"persistence\": { \"method\": \"generate_cookie\", \"cookie_name\": \"ROUTEID\", \"url_id\": \"routeid\"}, \"members\": []} }}"
-        }
-    },
-    "spec": {
-        "selector": {
-            "app": "webapp-wordpress"
-        },
-        "ports": [
-            {
-                "name": "http-port",
-                "protocol": "TCP",
-                "port": 80,
-                "targetPort": 80
+    {
+        "kind": "Service",
+        "apiVersion": "v1",
+        "metadata": {
+            "name": "webapp-wordpress",
+            "annotations": {
+                "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy\": { \"url\": \"balancer://mybalancer$mwa_alias\", \"alias\": \"$mwa_alias\"}, \"balancers\": { \"mybalancer\": { \"method\": \"round-robin\", \"persistence\": { \"method\": \"generate_cookie\", \"cookie_name\": \"ROUTEID\", \"url_id\": \"routeid\"}, \"members\": []} }}"
             }
-        ]
+        },
+        "spec": {
+            "selector": {
+                "app": "webapp-wordpress"
+            },
+            "ports": [
+                {
+                    "name": "http-port",
+                    "protocol": "TCP",
+                    "port": 80,
+                    "targetPort": 80
+                }
+            ]
+        }
     }
-}
 
 
 The `webconf-spec` field contains the webserver configuration in the [webconf-spec format](https://github.com/micro-webapps/webconf-spec). If we unescape that part, it looks like this:
