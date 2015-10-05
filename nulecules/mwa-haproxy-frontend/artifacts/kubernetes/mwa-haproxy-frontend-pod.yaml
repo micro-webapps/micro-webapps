@@ -7,13 +7,13 @@ metadata:
 spec:
   containers:
     - name: haproxy-frontend
-    image: microwebapps/haproxy-frontend
-    ports:
+      image: microwebapps/haproxy-frontend
+      ports:
         - containerPort: 80
-    env:
+      env:
         - name: KUBERNETES_CLIENT_CERTIFICATE_DATA
-        value: $kubernetes_client_certificate
+          value: $kubernetes_client_certificate
         - name: KUBERNETES_CLIENT_KEY_DATA
-        value: $kubernetes_client_key
+          value: $kubernetes_client_key
         - name: KUBERNETES_NAMESPACE
-        value: $kubernetes_namespace
+          value: $kubernetes_namespace
