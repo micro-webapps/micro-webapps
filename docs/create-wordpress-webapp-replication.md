@@ -2,7 +2,9 @@
 
 This document describes how to create multi-container Nulecule micro-webapps application with load balancing support from the existing Docker image. We will take Wordpress with MariaDB as an example of multi-container web application, but every step described in this document is quite general and can be applied to any web application.
 
-Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md), [Creating simple micro-webapps application - Simple Owncloud example](create-simple-owncloud-webapp.md) and [Creating multi-container micro-webapps application - Wordpress with MariaDB example](create-multi-container-wordpress-webapp.md)
+Before continuing with reading, you should know the [basic micro-webapps architecture](../README.md), [Creating simple micro-webapps application - Simple Owncloud example](create-simple-owncloud-webapp.md) and [Creating multi-container micro-webapps application - Wordpress with MariaDB example](create-multi-container-wordpress-webapp.md).
+
+The result of this document is available on Docker hub as [microwebapps/wordpress-atomicapp](https://hub.docker.com/r/microwebapps/wordpress-atomicapp/).
 
 ## Preparing the Docker image with the web application
 
