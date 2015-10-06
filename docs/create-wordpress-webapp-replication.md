@@ -122,12 +122,12 @@ We will store the service file as `./artifacts/kubernetes/wordpress-service.json
 
 The Nulecule file and Dockerfile are the same as in the [Creating multi-container micro-webapps application - Wordpress with MariaDB example](create-multi-container-wordpress-webapp.md).
 
-## Deploying the Wordpress micro-webapp
+## Deploying micro-webapps
 
 Deployment is described in another article:
 
-  * [Deploying micro-webapps application - Kubernetes](deploy-owncloud-webapp-kubernetes.md)
-  * [Deploying micro-webapps application - Openshift](deploy-wordpress-webapp.md)
+ * [Deploying using Atomic App (Nulecule)](docs/deploy-webapp-atomicapp.md)
+ * [Deploying on Kubernetes or Openshift](docs/deploy-webapp-kubernetes-openshift.md)
 
 
 

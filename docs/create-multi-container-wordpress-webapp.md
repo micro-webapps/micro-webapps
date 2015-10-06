@@ -162,12 +162,12 @@ Because the Nulecule is Docker image, we have to create Dockerfile to be able to
 
 You should be able to build the Docker image now using the Docker registry or local build.
 
-## Deploying the Wordpress micro-webapp
+## Deploying micro-webapps
 
 Deployment is described in another article:
 
-  * [Deploying micro-webapps application - Kubernetes](deploy-owncloud-webapp-kubernetes.md)
-  * [Deploying micro-webapps application - Openshift](deploy-wordpress-webapp.md)
+ * [Deploying using Atomic App (Nulecule)](docs/deploy-webapp-atomicapp.md)
+ * [Deploying on Kubernetes or Openshift](docs/deploy-webapp-kubernetes-openshift.md)
 
 
 

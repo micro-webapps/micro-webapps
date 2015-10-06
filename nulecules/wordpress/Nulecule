@@ -26,6 +26,10 @@ graph:
     - name: db_password
       description: Password used to access MySQL database.
       default: MySQLPass
+    - name: mwa_replicas
+      description: >
+        Number of Wordpress replicas.
+      default: 1
     artifacts:
       kubernetes:
         - file://artifacts/kubernetes/wordpress-pod.yaml
