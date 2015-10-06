@@ -64,6 +64,8 @@ The special part of this replication controller definition is the annotations pa
 
 When new pod is created by this replication controller, it contains this webconf-spec configuration. This configuration says that this pod should be added to list of members of balancer called `mybalancer` in virtualhost defined by `$mwa_vhost`. The `PODIP` string is replaced by the micro-webapps frontend by the real IP address of the pod.
 
+The default number of replicas is defined by the `$mwa_replicas` variable.
+
 ## Creating the Kubernetes or Openshift service for Wordpress
 
 The service for Wordpress using the micro-webapps could look like this:
@@ -120,7 +122,50 @@ We will store the service file as `./artifacts/kubernetes/wordpress-service.json
 
 ## Creating the Nulecule file and Dockerfile
 
-The Nulecule file and Dockerfile are the same as in the [Creating multi-container micro-webapps application - Wordpress with MariaDB example](create-multi-container-wordpress-webapp.md).
+The Dockerfile is the same as in the [Creating multi-container micro-webapps application - Wordpress with MariaDB example](create-multi-container-wordpress-webapp.md).
+
+For the Nulecule file, we just add another param for the new `$mwa_replicas` variable:
+
+    ---
+    specversion: 0.0.2
+    id: webapp-wordpress-atomicapp
+    metadata:
+      name: Wordpress
+      appversion: 1.1.0
+      description: >
+        This is a nulecule that will get you the container with Wordpress which
+        is able to run with httpd-frontend.
+    graph:
+      - name: aggregated-mariadb-atomicapp
+        source: docker://projectatomic/mariadb-centos7-atomicapp
+      - name: webapp-wordpress
+        params:
+        - name: mwa_vhost
+          description: >
+            Virtual-host where Owncloud should be served.
+          default: localhost
+        - name: mwa_alias
+          description: >
+            Alias which should be used to serve the Owncloud.
+          default: /blog
+        - name: db_user
+          description: User used to access MySQL database.
+          default: root
+        - name: db_password
+          description: Password used to access MySQL database.
+          default: MySQLPass
+        - name: mwa_replicas
+          description: >
+            Number of Wordpress replicas.
+          default: 1
+        artifacts:
+          kubernetes:
+            - file://artifacts/kubernetes/wordpress-pod.yaml
+            - file://artifacts/kubernetes/wordpress-service.json
+          openshift:
+            - inherit:
+              - kubernetes
+
 
 ## Deploying micro-webapps
 
