@@ -72,6 +72,7 @@ This chapter contains useful documentation and examples how to use micro-webapps
     * [Simple Owncloud example](docs/create-simple-owncloud-webapp.md)
     * [Multi-container Wordpress with MariaDB example](docs/create-multi-container-wordpress-webapp.md)
     * [Wordpress example with replication and load balancing](docs/create-wordpress-webapp-replication.md)
+    * [Micro-webapp from existing Nulecule](docs/create-micro-webapp-from-nulecule.md)
   * Deploying micro-webapps
     * [Deploying using Atomic App (Nulecule)](docs/deploy-webapp-atomicapp.md)
     * [Deploying on Kubernetes or Openshift](docs/deploy-webapp-kubernetes-openshift.md)
