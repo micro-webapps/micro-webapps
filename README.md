@@ -75,7 +75,7 @@ This chapter contains useful documentation and examples how to use micro-webapps
     * [Micro-webapp from existing Nulecule](docs/create-micro-webapp-from-nulecule.md)
   * Deploying micro-webapps
     * [Deploying using Atomic App (Nulecule)](docs/deploy-webapp-atomicapp.md)
-    * [Deploying on Kubernetes or Openshift](docs/deploy-webapp-kubernetes-openshift.md)
+    * Deploying on Kubernetes or Openshift (Not written yet, for now check Deploying using Atomic App (Nulecule))
   * Webconf-spec cookbook
     * Setting up SSL certificate for microweb-apps application
   * [Frequently asked questions](docs/faq.md)
