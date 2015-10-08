@@ -1,0 +1,22 @@
+{
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "name": "gitlab",
+      "annotations": {
+        "webconf-spec": "{\"virtualhost\": \"$mwa_vhost\",\"proxy\": { \"url\": \"balancer://gitlabbalancer/\", \"alias\": \"$mwa_alias\"}, \"balancers\": { \"mybalancer\": { \"method\": \"round-robin\", \"persistence\": { \"method\": \"generate_cookie\", \"cookie_name\": \"JSESSIONID\", \"url_id\": \"jsessionid\"}, \"members\": []} }}"
+      }
+    },
+    "spec":{
+        "ports": [
+            {
+               "targetPort": "gitlab-http",
+               "port": 80
+            }
+        ],
+        "type": "NodePort",
+        "selector": {
+            "name": "gitlab"
+        }
+    }
+}

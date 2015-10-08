@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: webapp-wordpress-controller
 spec:
-  replicas: $mwa_replicas
+  replicas: 1
   # selector identifies the set of pods that this
   # replication controller is responsible for managing
   selector:
