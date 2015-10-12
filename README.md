@@ -77,7 +77,8 @@ This chapter contains useful documentation and examples how to use micro-webapps
     * [Deploying using Atomic App (Nulecule)](docs/deploy-webapp-atomicapp.md)
     * Deploying on Kubernetes or Openshift (Not written yet, for now check Deploying using Atomic App (Nulecule))
   * Webconf-spec cookbook
-    * Setting up SSL certificate for microweb-apps application
+    * [Changing webconf-spec configuration](docs/webconf-spec-changing.md)
+    * [Setting up SSL certificate for microweb-apps application](docs/webconf-spec-ssl.md)
   * [Frequently asked questions](docs/faq.md)
     * [What is the difference between micro-webapps and Kubernetes service](docs/faq.md#what-is-the-difference-between-micro-webapps-and-kubernetes-service)
     * [What is the difference between micro-webapps and Openshift3 routing layer](docs/faq.md#what-is-the-difference-between-micro-webapps-and-openshift3-routing-layer)
